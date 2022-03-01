@@ -37,7 +37,7 @@ class DeviceTypes(models.Model):
 class Firmwares(models.Model):
     name = models.CharField(max_length=25)
     version = models.CharField(max_length=10)
-    device_type = models.ForeignKey('Device_types', on_delete=models.CASCADE)
+    device_type = models.ForeignKey('DeviceTypes', on_delete=models.CASCADE)
 
 
 class UserDevices(models.Model):
