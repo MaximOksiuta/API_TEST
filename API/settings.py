@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-
+import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'API_TEST',
-    'drf-yasg'
+    'drf_yasg'
 ]
 
 MIDDLEWARE = [
@@ -81,14 +81,22 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
+    # 'default': {
+    # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    # 'NAME': 'TestAPI_DB',
+    # 'USER': 'postgres',
+    # 'PASSWORD': 'uspeh1414',
+    # 'HOST': '127.0.0.1',
+    # 'PORT': '5432',
+    # }
     'default': {
-    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'TestAPI_DB',
-    'USER': 'postgres',
-    'PASSWORD': 'uspeh1414',
-    'HOST': '127.0.0.1',
-    'PORT': '5432',
-}
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dd73m9opi9mpra',
+        'USER': 'afbbxpihullkiq',
+        'PASSWORD': '64140382b5e2ec1611e1c86486697a357e6ff883f161441f9a647112b4509c71',
+        'HOST': 'ec2-34-233-157-189.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
 }
 
 
@@ -132,3 +140,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+django_heroku.settings(locals())
