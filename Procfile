@@ -1,1 +1,1 @@
-web: gunicorn adminExpenses.wsgi
+web: gunicorn API.wsgi
