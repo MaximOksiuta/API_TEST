@@ -7,11 +7,11 @@ from API_TEST.models import Users
 from API_TEST.serializers import UserCreateSerializer, UserListSerializer, UserAuthSerializer
 
 
-class UserCreateView(generics.CreateAPIView):
-    serializer_class = UserCreateSerializer
+# class UserCreateView(generics.CreateAPIView):
+#     serializer_class = UserCreateSerializer
 
 
-class GetUsersView(generics.ListAPIView):
+class GetUsersView(generics.ListCreateAPIView):
     serializer_class = UserListSerializer
     queryset = Users.objects.all()
 
