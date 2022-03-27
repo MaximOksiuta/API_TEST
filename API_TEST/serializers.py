@@ -41,7 +41,7 @@ class AddressPostSerializer(serializers.ModelSerializer):
 class AddressContentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Address
-        fields = ('id', 'address')
+        fields = ('address')
 
 
 class DevelopStatusSerializer(serializers.ModelSerializer):
