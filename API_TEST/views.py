@@ -22,34 +22,34 @@ class GetUserDetailsView(generics.RetrieveUpdateDestroyAPIView):
 
 class AddressView(generics.ListCreateAPIView):
     serializer_class = AddressSerializer
-    queryset = Address.object.all()
+    queryset = Address.objects.all()
 
 
 class DevelopStatusView(generics.ListCreateAPIView):
     serializer_class = DevelopStatusSerializer
-    queryset = DevelopStatus.object.all()
+    queryset = DevelopStatus.objects.all()
 
 
 class DeviceAccessStatusView(generics.ListCreateAPIView):
     serializer_class = DeviceAccessStatusSerializer
-    queryset = DeviceAccessStatus.object.all()
+    queryset = DeviceAccessStatus.objects.all()
 
 
 class DeviceStatusView(generics.ListCreateAPIView):
     serializer_class = DeviceStatusSerializer
-    queryset = DeviceStatus.object.all()
+    queryset = DeviceStatus.objects.all()
 
 
 class DeviceTypesView(generics.ListCreateAPIView):
     serializer_class = DeviceTypesSerializer
-    queryset = DeviceTypes.object.all()
+    queryset = DeviceTypes.objects.all()
 
 
 class FirmwaresView(generics.ListCreateAPIView):
     serializer_class = FirmwaresSerializer
-    queryset = Firmwares.object.all()
+    queryset = Firmwares.objects.all()
 
 
 class UserDevicesView(generics.ListCreateAPIView):
     serializer_class = UserDeviceSerializer
-    queryset = UserDevices.object.all()
+    queryset = UserDevices.objects.all()
