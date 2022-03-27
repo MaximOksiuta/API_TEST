@@ -14,8 +14,8 @@ class UserCreateView(generics.CreateAPIView):
 class GetUsersView(generics.ListAPIView):
     serializer_class = UserListSerializer
     queryset = Users.objects.all()
-#
-#
-# class GetUserDetailsView(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = Users.objects.all()
-#     serializer_class = UserAuthSerializer
+
+
+class GetUserDetailsView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Users.objects.all()
+    serializer_class = UserAuthSerializer
