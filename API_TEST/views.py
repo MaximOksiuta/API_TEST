@@ -13,7 +13,7 @@ class UserCreateView(generics.CreateAPIView):
 
 class GetUsersView(generics.ListAPIView):
     serializer_class = UserListSerializer
-    queryset = Users
+    queryset = Users.objects.all()
 #
 #
 # class GetUserDetailsView(generics.RetrieveUpdateDestroyAPIView):
