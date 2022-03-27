@@ -38,6 +38,12 @@ class AddressPostSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class AddressContentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Address
+        fields = '__all__'
+
+
 class DevelopStatusSerializer(serializers.ModelSerializer):
     class Meta:
         model = DevelopStatus
@@ -125,3 +131,11 @@ class UserDeviceSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserDevices
         fields = ('id', 'device_name', 'device_type', 'status', 'firmware')
+
+
+class UserWithAddressesSerializer(serializers.ModelSerializer):
+    addresses = AddressContentSerializer(many=True)
+
+    class Meta:
+        model = Users
+        fields = ('user_name', 'addresses')

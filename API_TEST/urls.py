@@ -1,13 +1,14 @@
 from django.urls import path
 from API_TEST.views import UsersView, GetUserDetailsView, DevelopStatusView, DeviceAccessStatusView, \
-    DeviceStatusView, FirmwaresView, UserDevicesView, AddressListView, AddressCreateView
+    DeviceStatusView, FirmwaresView, UserDevicesView, AddressListView, AddressCreateView, UserWithAddressesView
 
 urlpatterns = [
     # path("user", UserCreateView.as_view()),
     path("user/", UsersView.as_view()),
     path("user/<int:pk>", GetUserDetailsView.as_view()),
     path("address/list", AddressListView.as_view()),
-    path("address/create", AddressCreateView.as_view())
+    path("address/create", AddressCreateView.as_view()),
+    path("user/addresses/<int:pk>", UserWithAddressesView.as_view())
     # path("develop_status/", DevelopStatusView.as_view()),
     # path("device_access_status/", DeviceAccessStatusView.as_view()),
     # path("device_status/", DeviceStatusView.as_view()),
