@@ -5,9 +5,9 @@ from rest_framework import generics
 
 from API_TEST.models import Users, Address, DevelopStatus, DeviceAccessStatus, DeviceStatus, DeviceTypes, Firmwares, \
     UserDevices
-from API_TEST.serializers import UserSerializer, UserAuthSerializer, AddressSerializer, DevelopStatusSerializer, \
-    DeviceAccessStatusSerializer, DeviceStatusSerializer, DeviceTypesSerializer, FirmwaresSerializer, \
-    UserDeviceSerializer
+from API_TEST.serializers import UserSerializer, UserAuthSerializer, DevelopStatusSerializer, \
+    DeviceAccessStatusSerializer, DeviceStatusSerializer, FirmwaresSerializer, \
+    UserDeviceSerializer, AddressListSerializer, AddressPostSerializer
 
 
 class UsersView(generics.ListCreateAPIView):
@@ -20,9 +20,13 @@ class GetUserDetailsView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = UserAuthSerializer
 
 
-class AddressView(generics.ListCreateAPIView):
-    serializer_class = AddressSerializer
+class AddressListView(generics.ListAPIView):
+    serializer_class = AddressListSerializer
     queryset = Address.objects.all()
+
+
+class AddressCreateView(generics.CreateAPIView):
+    serializer_class = AddressPostSerializer
 
 
 class DevelopStatusView(generics.ListCreateAPIView):
@@ -40,9 +44,9 @@ class DeviceStatusView(generics.ListCreateAPIView):
     queryset = DeviceStatus.objects.all()
 
 
-class DeviceTypesView(generics.ListCreateAPIView):
-    serializer_class = DeviceTypesSerializer
-    queryset = DeviceTypes.objects.all()
+# class DeviceTypesView(generics.ListCreateAPIView):
+#     serializer_class = DeviceTypesSerializer
+#     queryset = DeviceTypes.objects.all()
 
 
 class FirmwaresView(generics.ListCreateAPIView):

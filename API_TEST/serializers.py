@@ -21,7 +21,7 @@ class UserNameSerializer(serializers.ModelSerializer):
         fields = 'user_name'
 
 
-class AddressSerializer(serializers.ModelSerializer):
+class AddressListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Address
         fields = ('address', 'user_name')
@@ -30,6 +30,12 @@ class AddressSerializer(serializers.ModelSerializer):
 
     def get_user_name(self, obj):
         return obj.user.user_name
+
+
+class AddressPostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Address
+        fields = '__all__'
 
 
 class DevelopStatusSerializer(serializers.ModelSerializer):
@@ -68,13 +74,25 @@ class DeviceStatusNameSerializer(serializers.ModelSerializer):
         fields = 'name'
 
 
-class DeviceTypesSerializer(serializers.ModelSerializer):
-    develop_status = DevelopStatusNameSerializer(many=False)
-    device_access_status = DeviceAccessStatusnameSerializer(many=False)
-
+class DeviceTypesListSerializer(serializers.ModelSerializer):
     class Meta:
         model = DeviceTypes
         fields = ('id', 'type_name', 'price', 'develop_status', 'device_access_status')
+
+    develop_status = serializers.SerializerMethodField('get_dev_stat_name')
+    device_access_status = serializers.SerializerMethodField('get_dev_access_stat_name')
+
+    def get_dev_stat_name(self, obj):
+        return obj.develop_status.name
+
+    def get_dev_access_stat_name(self, obj):
+        return obj.device_access_status.name
+
+
+class DeviceTypesPostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DeviceTypes
+        fields = '__all__'
 
 
 class DeviceTypesNameSerializer(serializers.ModelSerializer):
