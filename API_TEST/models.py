@@ -12,7 +12,7 @@ class Users(models.Model):
 
 class Address(models.Model):
     address = models.CharField(max_length=255)
-    user = models.ForeignKey('Users', on_delete=models.CASCADE)
+    user = models.ForeignKey('Users', on_delete=models.CASCADE, related_name='addresses')
 
 
 class DevelopStatus(models.Model):

@@ -22,11 +22,14 @@ class UserNameSerializer(serializers.ModelSerializer):
 
 
 class AddressSerializer(serializers.ModelSerializer):
-    user = UserNameSerializer(many=False)
-
     class Meta:
         model = Address
-        fields = ('address', 'user')
+        fields = ('address', 'user_name')
+
+    user_name = serializers.SerializerMethodField('get_user_name')
+
+    def get_user_name(self, obj):
+        return obj.user.user_name
 
 
 class DevelopStatusSerializer(serializers.ModelSerializer):
