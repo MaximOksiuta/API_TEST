@@ -7,7 +7,8 @@ from API_TEST.models import Users, Address, DevelopStatus, DeviceAccessStatus, D
     UserDevices
 from API_TEST.serializers import UserSerializer, UserAuthSerializer, DevelopStatusSerializer, \
     DeviceAccessStatusSerializer, DeviceStatusSerializer, FirmwaresSerializer, \
-    UserDeviceSerializer, AddressListSerializer, AddressPostSerializer, UserWithAddressesSerializer
+    UserDeviceSerializer, AddressListSerializer, AddressPostSerializer, UserWithAddressesSerializer, \
+    DeviceTypesPostSerializer, DeviceTypesListSerializer
 
 
 class UsersView(generics.ListCreateAPIView):
@@ -47,7 +48,13 @@ class DeviceStatusView(generics.ListCreateAPIView):
 # class DeviceTypesView(generics.ListCreateAPIView):
 #     serializer_class = DeviceTypesSerializer
 #     queryset = DeviceTypes.objects.all()
+class DeviceTypesCreateView(generics.CreateAPIView):
+    serializer_class = DeviceTypesPostSerializer
 
+
+class DeviceTypesListView(generics.ListAPIView):
+    serializer_class = DeviceTypesListSerializer
+    queryset = DeviceTypes.objects.all()
 
 class FirmwaresView(generics.ListCreateAPIView):
     serializer_class = FirmwaresSerializer
